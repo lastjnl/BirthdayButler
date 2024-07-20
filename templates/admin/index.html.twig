@@ -1,0 +1,23 @@
+{# templates/admin/index.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <a href="{{ path('admin_drink_new') }}">Add New Drink</a>
+    <a href="{{ path('admin_logout') }}">Logout</a>
+    <ul>
+        {% for drink in drinks %}
+            <li>
+                {{ drink.name }} - ${{ drink.price }} - {{ drink.stock }} in stock
+                <a href="{{ path('admin_drink_edit', { id: drink.id }) }}">Edit</a>
+                <a href="{{ path('admin_drink_delete', { id: drink.id }) }}" onclick="return confirm('Are you sure?')">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

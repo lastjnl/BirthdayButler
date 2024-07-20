@@ -1,0 +1,19 @@
+{# templates/admin/form.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ edit ? 'Edit Drink' : 'Add New Drink' }}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <h1>{{ edit ? 'Edit Drink' : 'Add New Drink' }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.stock) }}
+        <button type="submit">{{ edit ? 'Update' : 'Add' }}</button>
+    {{ form_end(form) }}
+</body>
+</html>
