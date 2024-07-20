@@ -1,0 +1,38 @@
+{# templates/home/index.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Party!</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Birthday Party!</h1>
+        <p>Order your favorite drinks from the menu below.</p>
+    </header>
+
+    <main>
+        {% for label, messages in app.flashes %}
+            <div class="flash-{{ label }}">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        
+        <h2>Drink Menu</h2>
+        <ul>
+            {% for drink in drinks %}
+                <li>
+                    <strong>{{ drink.name }}</strong> - ${{ drink.price|number_format(2) }}
+                    <form method="post" action="{{ path('order_drink') }}">
+                        <input type="hidden" name="drink_name" value="{{ drink.name }}">
+                        <button type="submit">Order</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
