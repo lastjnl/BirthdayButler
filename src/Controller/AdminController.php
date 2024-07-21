@@ -15,27 +15,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AdminController extends AbstractController
 {
-    #[Route('/admin/login', name: 'admin_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
-    {
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
-
-        return $this->render('admin/login.html.twig', [
-            'last_username' => $lastUsername,
-            'error' => $error,
-        ]);
-    }
-
-    #[Route('/admin/logout', name: 'admin_logout')]
-    public function logout(): void
-    {
-        // The route is handled by Symfony, so this method can be blank.
-        // It will never be executed.
-    }
 
     #[Route('/admin', name: 'admin_dashboard')]
     public function index(DrinkRepository $drinkRepository): Response
@@ -52,7 +31,6 @@ class AdminController extends AbstractController
     #[Route('/admin/drink/{id}/edit', name: 'admin_drink_edit')]
     public function form(Request $request, EntityManagerInterface $em, Drink $drink = null): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         if (!$drink) {
             $drink = new Drink();

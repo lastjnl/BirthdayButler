@@ -2,6 +2,7 @@
 // src/Controller/LuckyController.php
 namespace App\Controller;
 
+use App\Repository\DrinkRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,15 +11,10 @@ class ButlerController extends AbstractController
 
 {
     #[Route('/', 'home')]
-    public function startServing(): Response
+    public function startServing(DrinkRepository $drinkRepository): Response
     {
 
-        $drinks = [
-            ['name' => 'Coca Cola', 'price' => 3.00],
-            ['name' => 'Orange Juice', 'price' => 2.50],
-            ['name' => 'Beer', 'price' => 4.00],
-            ['name' => 'Wine', 'price' => 5.50],
-        ];
+        $drinks = $drinkRepository->findAll();
 
         return $this->render('butler.html.twig',[
             'drinks' => $drinks

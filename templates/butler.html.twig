@@ -25,7 +25,7 @@
         <ul>
             {% for drink in drinks %}
                 <li>
-                    <strong>{{ drink.name }}</strong> - ${{ drink.price|number_format(2) }}
+                    <strong>{{ drink.name }}</strong> - {{ drink.stock}} op voorraad
                     <form method="post" action="{{ path('order_drink') }}">
                         <input type="hidden" name="drink_name" value="{{ drink.name }}">
                         <button type="submit">Order</button>
