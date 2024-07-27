@@ -1,0 +1,10 @@
+# Set the default behavior to automatically normalize line endings.
+* text=auto
+
+# Specify line ending settings for certain file types if needed.
+# For example, to enforce LF endings for text files:
+*.txt text eol=lf
+
+# Ensure binary files are not altered
+*.png binary
+*.jpg binary
