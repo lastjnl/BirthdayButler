@@ -1,17 +1,14 @@
-{# templates/home/index.html.twig #}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to the Party!</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+{% extends "layout/base.html.twig" %}
+
+
+{% block header %}
     <header>
         <h1>Welcome to the Birthday Party!</h1>
         <p>Order your favorite drinks from the menu below.</p>
     </header>
+{% endblock %}
 
+{% block main %}
     <main>
         {% for label, messages in app.flashes %}
             <div class="flash-{{ label }}">
@@ -34,5 +31,4 @@
             {% endfor %}
         </ul>
     </main>
-</body>
-</html>
+{% endblock %}
