@@ -1,13 +1,6 @@
 {% extends "layout/base.html.twig" %}
 
 
-{% block header %}
-    <header>
-        <h1>Welcome to the Birthday Party!</h1>
-        <p>Order your favorite drinks from the menu below.</p>
-    </header>
-{% endblock %}
-
 {% block main %}
     <main>
         {% for label, messages in app.flashes %}

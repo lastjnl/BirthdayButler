@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Welcome to the Party!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
 </head>
 <body>
-    {% block header %} {% endblock %}
+    {% include 'menu/default.html.twig' %}
     {% block main %} {% endblock %}
 </body>
 </html>
