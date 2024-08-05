@@ -13,7 +13,11 @@ class ButlerController extends AbstractController
     #[Route('/', 'home')]
     public function startServing(DrinkRepository $drinkRepository): Response
     {
+        return $this->render('home.html.twig');
+    }
 
+    public function browseMenu(DrinkRepository $drinkRepository): Response
+    {
         $drinks = $drinkRepository->findAll();
 
         return $this->render('butler.html.twig',[
