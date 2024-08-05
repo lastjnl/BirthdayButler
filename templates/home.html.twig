@@ -1,11 +1,12 @@
 {% extends "layout/base.html.twig" %}
 
-
 {% block main %}
-    <div>
-        <h1>Welkom op dit feest!</h1>
-        <span>Maak je keuze om door te gaan naar het menu</span>
-        <button>Ik heb nog geen account</button>
-        <button>Inloggen</button>
+    <div class="flex flex-col text-center">
+        <div class="bg-red-200 pt-4 pb-4 rounded">
+            <h1 class="text-3xl font-black text-red-900">Welkom op dit feest!</h1>
+            <span class="text-red-900">Maak je keuze om door te gaan naar het menu</span>
+        </div>
+        <button class="text-white bg-red-800 p-4 rounded mt-2">Ik heb nog geen account</button>
+        <button class="text-white bg-red-800 p-4 rounded mt-2">Inloggen</button>
     </div>
 {% endblock %}
