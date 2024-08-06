@@ -1,8 +1,26 @@
-<!DOCTYPE html>
+{% extends "layout/base.html.twig" %}
 
-<h1>register form</h1>
+{% block main %}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
-{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-    {{ form_widget(form) }}
-{{ form_end(form) }}
+        <div class="bg-red-300 flex flex-col rounded-md p-2">
+            <label class="p-1 font-bold">{{ form_label(form.email) }}</label>
+            {{ form_widget(form.email, { 'attr': { 'class': 'p-2 border-2 border-red-400' }}) }}
+        </div>
 
+        <div class="bg-red-300 flex flex-col rounded-md p-2 mt-2">
+            <label class="p-1 font-bold">{{ form_label(form.plainPassword.first) }}</label>
+            {{ form_widget(form.plainPassword.first, { 'attr': { 'class': 'p-2 border-2 border-red-400' }}) }}
+        </div>
+
+        <div class="bg-red-300 flex flex-col rounded-md p-2 mt-2">
+            <label class="p-1 font-bold">{{ form_label(form.plainPassword.second) }}</label>
+            {{ form_widget(form.plainPassword.second, { 'attr': { 'class': 'p-2 border-2 border-red-400' }}) }}
+        </div>
+
+        <div class="bg-red-300 flex flex-col rounded-md p-2 mt-2">
+            {{ form_widget(form.save, { 'attr': { 'class': 'p-2 border-2 border-red-400 bg-red-400 text-white font-bold' }}) }}
+        </div>
+
+    {{ form_end(form) }}
+{% endblock %}

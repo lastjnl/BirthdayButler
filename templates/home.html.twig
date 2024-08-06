@@ -6,7 +6,7 @@
             <h1 class="text-3xl font-black text-red-900">Welkom op dit feest!</h1>
             <span class="text-red-900">Maak je keuze om door te gaan naar het menu</span>
         </div>
-        <button class="text-white bg-red-800 p-4 rounded mt-2">Ik heb nog geen account</button>
-        <button class="text-white bg-red-800 p-4 rounded mt-2">Inloggen</button>
+        <a href="{{ path('app_register_customer') }}" class="text-white bg-red-800 p-4 rounded mt-2">Ik heb nog geen account</a>
+        <a href="{{ path('app_login') }}"class="text-white bg-red-800 p-4 rounded mt-2">Inloggen</a>
     </div>
 {% endblock %}
