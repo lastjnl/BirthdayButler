@@ -16,6 +16,7 @@ class ButlerController extends AbstractController
         return $this->render('home.html.twig');
     }
 
+    #[Route('order/menu', 'app_menu')]
     public function browseMenu(DrinkRepository $drinkRepository): Response
     {
         $drinks = $drinkRepository->findAll();

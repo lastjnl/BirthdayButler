@@ -4,6 +4,11 @@
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
         <div class="bg-red-300 flex flex-col rounded-md p-2">
+            <label class="p-1 font-bold">{{ form_label(form.name) }}</label>
+            {{ form_widget(form.name, { 'attr': { 'class': 'p-2 border-2 border-red-400' }}) }}
+        </div>
+
+        <div class="bg-red-300 flex flex-col rounded-md p-2 mt-2">
             <label class="p-1 font-bold">{{ form_label(form.email) }}</label>
             {{ form_widget(form.email, { 'attr': { 'class': 'p-2 border-2 border-red-400' }}) }}
         </div>

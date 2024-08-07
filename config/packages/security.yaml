@@ -22,7 +22,7 @@ security:
                 login_path: app_login
                 check_path: app_login
                 # enable_csrf: true
-                default_target_path: home
+                default_target_path: app_menu
             logout:
                 path: app_logout
                 # where to redirect after logout
@@ -34,4 +34,3 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/order, roles: ROLE_USER }
         # Other access controls as needed
-

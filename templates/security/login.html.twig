@@ -1,16 +1,30 @@
-{% if error %}
+{% extends "layout/base.html.twig" %}
+
+{% block main %}
+
+    {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     <form action="{{ path('app_login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" required>
+        <div class="bg-red-300 flex flex-col rounded-md p-2">
+            <label class="p-1 font-bold" for="username">Email:</label>
+            <input class="p-2 border-2 border-red-400" type="text" id="username" name="_username" value="{{ last_username }}" required>
+        </div>
+
+        <div class="bg-red-300 flex flex-col rounded-md p-2 mt-2">
+            <label class="p-1 font-bold" for="password">Password:</label>
+            <input class="p-2 border-2 border-red-400" type="password" id="password" name="_password" required>
+        </div>
 
         {# If you want to control the URL the user is redirected to on success
         <input type="hidden" name="_target_path" value="/account"> #}
 
-        <button type="submit">login</button>
+        <div class="bg-red-300 flex flex-col rounded-md p-2 mt-2">
+            <button class="p-2 border-2 border-red-400 bg-red-400 text-white font-bold" type="submit">login</button>
+        </div>
+
     </form>
+
+{% endblock %}
